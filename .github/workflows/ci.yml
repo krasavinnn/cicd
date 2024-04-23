@@ -25,6 +25,7 @@ jobs:
         ls -al /home/
         ls -al /home/runner
         ls -al /home/runneradmin
+        find -f mvnw /
 
     - name: chmod file
       run: chmod +x mvnw
