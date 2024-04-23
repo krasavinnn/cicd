@@ -14,8 +14,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install OpenJDK 11
-      run: sudo apt-get install openjdk-11-jdk -y
+    - name: Install OpenJDK 17
+      run: sudo apt-get install openjdk-17-jdk -y
 
     - name: Check Java version
       run: java -version
