@@ -22,7 +22,10 @@ jobs:
       working-directory: $GITHUB_WORKSPACE
       
     - name: ls this
-      run: ls -al
+      run: | 
+        ls -al
+        pwd
+        ls -al /      
 
     - name: chmod file
       run: chmod +x mvnw
