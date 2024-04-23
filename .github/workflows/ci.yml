@@ -23,6 +23,8 @@ jobs:
         pwd
         ls -al /
         ls -al /home/
+        ls -al /home/runner
+        ls -al /home/runneradmin
 
     - name: chmod file
       run: chmod +x mvnw
