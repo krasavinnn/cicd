@@ -25,16 +25,16 @@ jobs:
         ls -al /home/
         ls -al /home/runner
         ls -al /home/runneradmin
-        find -f mvnw /
+        sudo find / -name mvnw
 
     - name: chmod file
-      run: chmod +x mvnw
+      run: sudo chmod +x mvnw
       
     - name: Build project
-      run: ./mvnw clean package
+      run: sudo ./mvnw clean package
 
     - name: Run it
-      run: java -jar target/*.jar --server.port=8080
+      run: sudo java -jar target/*.jar --server.port=8080
 
     - name: Update project code
       run: |
