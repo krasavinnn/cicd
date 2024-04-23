@@ -1,20 +1,41 @@
-name: Continuous Integration
+name: Java CI
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
+  workflow_dispatch: # Додано змогу запуску вручну
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+
+    runs-on: ubuntu-latest # Обрав операційну систему Ubuntu
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-      - name: Build with Maven
-        run: mvn clean install
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+
+    - name: Install Maven
+      run: sudo apt-get install maven -y # Встановлення Maven
+
+    - name: Download dependencies
+      run: mvn dependency:resolve
+
+    - name: Build project
+      run: mvn clean package --file pom.xml
+
+    - name: Run unit tests
+      run: mvn test
+
+    - name: Update project code
+      run: |
+        git config --global user.name 'krasavinnn'
+        git config --global user.email 'krasavin5718@gmail.com'
+        git add .
+        git commit -m "Update project"
+        git push
