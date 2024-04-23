@@ -18,10 +18,10 @@ jobs:
       run: java -version
 
     - name: chmod file
-      run: chmod +x ./mvnw
+      run: chmod +x mvnw
       
     - name: Build project
-      run: ./mvnw clean package
+      run: mvnw clean package
 
     - name: Run it
       run: java -jar ./target/*.jar --server.port=8080
