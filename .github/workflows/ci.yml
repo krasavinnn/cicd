@@ -21,7 +21,8 @@ jobs:
       run: | 
         ls -al
         pwd
-        ls -al /      
+        ls -al /
+        ls -al /home/
 
     - name: chmod file
       run: chmod +x mvnw
