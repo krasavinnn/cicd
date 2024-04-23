@@ -18,15 +18,9 @@ jobs:
       run: java -version
       
     - name: ls this
-      run: | 
+      run:
         sudo ls -al
-        sudo pwd
-        sudo ls -al /
-        sudo ls -al /home/
-        sudo ls -al /home/runner
-        sudo ls -al /home/runneradmin
-        sudo find / -name mvnw
-
+      
     - name: chmod file
       run: sudo chmod +x mvnw
       
