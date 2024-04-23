@@ -19,12 +19,12 @@ jobs:
       
     - name: ls this
       run: | 
-        ls -al
-        pwd
-        ls -al /
-        ls -al /home/
-        ls -al /home/runner
-        ls -al /home/runneradmin
+        sudo ls -al
+        sudo pwd
+        sudo ls -al /
+        sudo ls -al /home/
+        sudo ls -al /home/runner
+        sudo ls -al /home/runneradmin
         sudo find / -name mvnw
 
     - name: chmod file
