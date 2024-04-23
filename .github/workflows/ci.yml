@@ -17,6 +17,9 @@ jobs:
     - name: Check Java version
       run: java -version
 
+    - name: ls this
+      run: ls -al
+      
     - name: chmod file
       run: chmod +x mvnw
       
