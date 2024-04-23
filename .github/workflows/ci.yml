@@ -17,10 +17,6 @@ jobs:
     - name: Check Java version
       run: java -version
       
-    - name: Go to project directory
-      run: cd cicd
-      working-directory: $GITHUB_WORKSPACE
-      
     - name: ls this
       run: | 
         ls -al
