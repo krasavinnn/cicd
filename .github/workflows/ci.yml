@@ -54,7 +54,7 @@ jobs:
         git commit -m "Update code for pull request"
 
     - name: Push changes
-      run: git push origin second-branch
+      run: git push origin second-branch --force
 
     - name: Create pull request
       uses: peter-evans/create-pull-request@v3
