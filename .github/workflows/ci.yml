@@ -56,9 +56,6 @@ jobs:
 
     - name: Create pull request
       uses: peter-evans/create-pull-request@v3
-      with:
-        token: ${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}
+      with:    
         branch: second-branch
         title: "Update code for pull request"
-        body: |
-          Code has been changed.
