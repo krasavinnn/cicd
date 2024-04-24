@@ -5,6 +5,8 @@ on:
     branches:
       - main
   workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
   build:
@@ -28,6 +30,24 @@ jobs:
       
     - name: make package
       run: mvn package -DskipTests
+
+    - name: Create new branch
+      run: git checkout -b second-branch
+
+    - name: Commit and push changes
+      run: |
+        git add .
+        git commit -m "Update code for pull request"
+        git push origin second-branch
+
+    - name: Create pull request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: second-branch
+        title: "Update code for pull request"
+        body: |
+          Code has been changed.
 
     - name: Testing
       run: mvn test
