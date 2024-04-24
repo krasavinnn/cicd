@@ -53,8 +53,10 @@ jobs:
 
     - name: Create pull request
       uses: peter-evans/create-pull-request@v3
+      env:
+        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
       with:
-        token: ${{ secrets.GIT_TOKEN }}
+        token: $GIT_TOKEN
         branch: second-branch
         title: "Update code for pull request"
         body: |
