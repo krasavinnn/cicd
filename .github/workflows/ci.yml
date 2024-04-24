@@ -33,9 +33,6 @@ jobs:
 
     - name: Testing
       run: mvn test  
-    
-    - name: make some changes
-      run: echo "Hi, I am your new file" >> new_file.txt
       
     - name: Set up Git
       env:
@@ -47,16 +44,22 @@ jobs:
     
     - name: Create new branch
       run: git checkout -b second-branch
-
-    - name: Commit and push changes
+    
+    - name: make some changes
+      run: echo "Hi, I am your new file" >> new_file.txt
+      
+    - name: Commit changes
       run: |
         git add .
         git commit -m "Update code for pull request"
-        git push origin second-branch
+
+    - name: Push changes
+      run: git push origin second-branch
 
     - name: Create pull request
       uses: peter-evans/create-pull-request@v3
       with:
         token: ${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}
+        repository: krasavinnn/cicd
         branch: second-branch
         title: "Update code for pull request"
