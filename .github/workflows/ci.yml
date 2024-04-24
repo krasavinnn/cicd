@@ -56,6 +56,8 @@ jobs:
 
     - name: Create pull request
       uses: peter-evans/create-pull-request@v3
-      with:    
+      with:
+        token: ${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}
+        repository: krasavinnn/cicd
         branch: second-branch
         title: "Update code for pull request"
