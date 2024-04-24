@@ -30,7 +30,15 @@ jobs:
       
     - name: make package
       run: mvn package -DskipTests
-
+    
+    - name: Set up Git
+      env:
+        GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
+        GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
+      run: |
+        git config --global user.email "$GIT_USER_EMAIL"
+        git config --global user.name "$GIT_USER_NAME"
+    
     - name: Create new branch
       run: git checkout -b second-branch
 
