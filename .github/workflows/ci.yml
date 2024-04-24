@@ -31,6 +31,9 @@ jobs:
     - name: make package
       run: mvn package -DskipTests
     
+    - name: make some changes
+      run: echo "Hi, I am your new file" >> new_file.txt
+      
     - name: Set up Git
       env:
         GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
