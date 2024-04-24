@@ -22,19 +22,15 @@ jobs:
     
     - name: Check Java version
       run: java -version
+        
+    - name: install dependencies
+      run: mvn compile
       
-    - name: ls this
-      run:
-        sudo ls -al
-      
-    - name: chmod file
-      run: sudo chmod +x mvnw
-      
-    - name: Build project
-      run: sudo ./mvnw clean package
+    - name: make package
+      run: mvn package -DskipTests
 
-    - name: Run it
-      run: sudo java -jar target/*.jar --server.port=8080
+    - name: Testing
+      run: mvn test
 
     - name: Update project code
       run: |
