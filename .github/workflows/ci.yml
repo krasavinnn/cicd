@@ -30,6 +30,9 @@ jobs:
       
     - name: make package
       run: mvn package -DskipTests
+
+    - name: Testing
+      run: mvn test  
     
     - name: make some changes
       run: echo "Hi, I am your new file" >> new_file.txt
@@ -53,14 +56,9 @@ jobs:
 
     - name: Create pull request
       uses: peter-evans/create-pull-request@v3
-      env:
-        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
       with:
-        token: $GIT_TOKEN
+        token: ${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}
         branch: second-branch
         title: "Update code for pull request"
         body: |
           Code has been changed.
-
-    - name: Testing
-      run: mvn test
